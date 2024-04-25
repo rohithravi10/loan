@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan App</title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image:url('/bg7.jpg');
+    
+}
+div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: inset 0 50px 150px rgba(0,0,0,1);
+    border-bottom: 1px solid #fff;
+    /* background-image: linear-gradient(#0e88bd, #1325c2); */
+    animation: animate 1s ease-in-out forwards;
+
+}
+@keyframes animate{
+0%{
+    transform: translate(-50%,-50%) scale(0);
+}
+100%{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+}
+div:nth-child(1){
+    width: 1500px;
+    height: 1500px;
+    animation-delay: 0s;
+}
+div:nth-child(2){
+    width:1250px;
+    height:1250px;
+    animation-delay: 0.5s;
+}
+div:nth-child(3){
+    width: 1000px;
+    height:1000px;
+    animation-delay: 1s;
+}
+div:nth-child(4){
+    width: 750px;
+    height:750px;
+    animation-delay: 1.5s;
+}
+div:nth-child(5){
+    width: 500px;
+    height:500px;
+    animation-delay: 2s;
+}
+div:nth-child(5) img{
+    max-width: 250px;
+    z-index: -1;
+    transform: translate(500px);
+    animation: animateLogo 1s ease-in-out forwards;
+    animation-delay: 3s;
+
+}
+@keyframes animateLogo{
+    0%{
+        transform: translate(500px) ;
+    }
+    100%{
+        transform: translate(opx) scale(1);
+    }
+    
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div>
+        <!--<a href="/accesss"><img src='assets/images/logo1.png' width="168px"></a>-->
+        <a href="/accesss" title="Click to here login"><img src='/logo1.png' width="168px">
+        </a>
+    </div>
+</body>
+<script>
+    fetch("/index", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    })
+</script>
+
+</html>

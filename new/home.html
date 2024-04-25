@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <title>Document</title>
+    <style>
+        /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {/* Set background image using a URL */
+    background-image: url('/bg8.png');
+
+    /* Optionally, you can specify additional properties to control the background */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-size: cover;
+    /* Cover the entire viewport */
+    background-position: center;
+    /* Center the image */}
+header {
+    background-image: url('images/bg7.jpg');
+    /* Example background color for the header */
+    padding: 20px;
+    /* Adjust padding as needed */
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    /* Adjust the distance from the top edge of the header */
+    left: 30px;
+    /* Adjust the distance from the left edge of the header */
+    color: rgb(17, 57, 187);
+    /* Text color */
+    font-size: 24px;
+    /* Adjust font size as needed */
+    font-family: 'poppins', sans-serif;
+    /* Specify font family */
+}
+
+
+
+.container {
+    position: relative;
+    width: 100%;
+    /* Adjust width as needed */
+    height: 100vh;
+    /* Adjust height as needed */
+    background: none;
+    /* Example background color for the container */
+}
+
+.center-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    /* Optional: Adjust size and other styles */
+    width: 600px;
+    height: auto;
+}
+
+
+.circular-image {
+    width: 780px;
+    /* Adjust the width and height as needed */
+    height: 600px;
+    border-radius: 50%;
+    /* Creates a circular shape */
+    object-fit: cover;
+    /* Ensure the entire image is visible */
+    /* Optional: Add box-shadow, border, or other styles */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Example box shadow */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+
+
+/* Reset default margin and padding */
+
+
+
+.container1 {
+    display: flex;
+    align-items: center;
+    /* Center the content vertically */
+    height: 100vh;
+    /* Adjust height as needed */
+}
+
+.content {
+    text-align: left;
+    /* Align content to the left */
+    margin-left: 20px;
+    /* Add margin to the left for spacing */
+
+}
+
+.info {
+    max-width: 400px;
+    /* Adjust max-width as needed */
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+h2 span {
+    color:rgb(216, 135, 13);
+    /* Example color for the span */
+}
+
+p {
+    margin-bottom: 10px;
+
+}
+
+.info-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #db821c;
+    /* Example background color for the button */
+    color: #fff;
+    /* Example text color for the button */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.paragraph-color {
+    color: #fff; /* Specify the color you want */
+}
+
+.back-button {
+         
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         color: #f8f7f7;
+         font-size: 44px;
+         text-decoration: none;
+     }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/front" class="back-button">&#8249;</a>
+            <h1 class="logo"><img src='/loo4.png' width="180px"></h1>
+        
+        <!-- Add other header content here -->
+
+        <div class="container">
+            
+            <img src='/homey1.png' alt="Image" class="circular-image" width="800">
+
+            <div class="container1">
+                <div class="content">
+                    <div class="info">
+                        <h2>"Build Your Dream Home<span> at one point with SRMTech"</span></h2>
+                        <p class="paragraph-color"> For most people, purchasing a home is one of the most significant
+                            financial goals they aspire to achieve. Home loans enable individuals
+                            and families to buy a house that they might not be able to afford outright.
+                            This promotes homeownership, which provides stability, security,
+                            and a sense of belonging.
+                        </p>
+                        <a href="#" class="info-btn" onclick="applyForLoan()">Apply for Loan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+<script>
+    fetch("/homee", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    })
+</script>
+<script>
+    function applyForLoan() {
+        // Redirect to the Google Forms link
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScBUkA4THTsgj7o6YqIfI0MQrrSwTvieLgYjycJToFKJlozxg/viewform?usp=sf_link";
+    }
+</script>
+</html>

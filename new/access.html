@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SRMTech</title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+ 
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            /* background-image: linear-gradient(#0e88bd, #1325c2); */
+            background-image:url('/bg8.png');
+            /* background-size: cover; */
+            height: 100vh;
+            color: #333;
+            /* Adjust text color for better readability */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 180px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #title {
+            text-align: center;
+            color: white;
+            margin: 40px 0; /* Adjusted margin */
+        }
+
+        #login-text {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        #collection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .collections {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .content:last-child img {
+            margin-right: 0; /* Remove margin from last image */
+        }
+        /* Add space between the two images */
+        .content + .content {
+            margin-left: 120px;
+        }
+
+        .content h1 {
+            color: white;
+            font-size: 24px;
+        }
+
+        .img-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Apply hover effect directly to .img-content */
+        .img-content:hover {
+            color: #ffaa00;
+        }
+
+        .img-content a {
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+ 
+<body>
+    <img src='/loo4.png' class="logo" alt="SRMTech Logo">
+    <h1 id="title">Welcome to Mortgage Loan</h1>
+    <h2 id="login-text">Login as</h2>
+    <section id="collection">
+        <div class="collections">
+            <div class="content">
+                <a href="/home"><img src='/nadmin.png' alt="Admin Image"></a>
+                <div class="img-content">
+                    <a href="/home">Admin</a>
+                </div>
+            </div>
+            <div class="content">
+                <a href="/contactts"><img src='/nuser.png' alt="User Image"></a>
+                <div class="img-content">
+                    <a href="/contactts">User</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        fetch("/access", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+    </script>
+</body>
+ 
+ 
+</html>

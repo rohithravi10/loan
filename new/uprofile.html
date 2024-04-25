@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 600px;
+            font-family: Arial, sans-serif;
+            background-image: url('/bg8.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Profile container */
+        .profile-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added for positioning buttons */
+        }
+
+        /* Profile header */
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Profile info */
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .user-details h2,
+        .user-details p {
+            margin: 0;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .user-details input[type="text"] {
+            border: none;
+            border-bottom: 1px solid transparent; /* Remove underline */
+            margin-bottom: 10px;
+            font-size: 20px;
+            outline: none; /* Remove outline */
+        }
+
+        .edit-icon {
+            margin-left: 5px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        /* Account section */
+        .account-section {
+            margin-top: 20px;
+        }
+
+        .account-section h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .account-item {
+            display: block;
+            margin-bottom: 5px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Edit profile picture */
+        .edit-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .edit-profile input[type="file"] {
+            display: none;
+        }
+
+        .edit-profile button {
+            background-color: #0c0c0c;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            position: absolute;
+            margin-top: 80px;
+        }
+
+        /* Editable mode styles */
+        .editable input[type="text"] {
+            border-bottom: 1px solid #0c0c0c; /* Add back the underline */
+        }
+
+        .editable input[type="text"]:focus {
+            border-bottom: 1px solid #007bff; /* Change underline color on focus */
+        }
+
+        .editable input[type="text"]:read-only {
+            border-bottom: none; /* Remove underline in read-only mode */
+        }
+
+        /* Save button */
+        #save-button {
+            background-color: #161616; /* Changed button color */
+            top: 200px; /* Adjusted position */
+            right: 20px; /* Adjusted position */
+            color: #fff;
+            border-radius: 20px;
+            margin-left: 450px;
+        }
+        #save-button {
+         background-color: #161616; /* Changed button color */
+         top: 200px; /* Adjusted position */
+         right: 20px; /* Adjusted position */
+         color: #fff;
+         border-radius: 20px;
+         display: none;
+         margin-left: 450px;/* Initially hide save button */
+        }
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.loan-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+   
+    
+}
+
+.loan-button:hover {
+    transform: translateY(-3px);
+}
+
+.icon-container {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon-container img {
+    width: 70%;
+    height: 70%;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <a href="/front"><i class="fas fa-chevron-left"></i></a>
+            <h1>User Profile</h1>
+            <i class="fas fa-pencil-alt edit-icon" onclick="toggleEditMode()"></i>
+        </div>
+        <div class="profile-info">
+            <div class="edit-profile">
+                <img id="profile-image" src='' alt="profile picture">
+                <input type="file" id="profile-picture" accept="image/*">
+                <button onclick="document.getElementById('profile-picture').click()">Edit</button>
+            </div>
+            <div class="user-details">
+                <label for="username">Name:</label>
+                <input type="text" id="username" value="Bryan" readonly>
+                <label for="designation">Department:</label>
+                <input type="text" id="designation" value="CIS" readonly>
+            </div>
+        </div>
+        <div class="status-section">
+
+        </div>
+        <div class="account-section">
+            <h3>My Account</h3>
+            <div class="button-container">
+                <button class="loan-button" id="preClosureButton">
+                    <span>Loan Pre-closure</span>
+                    <div class="icon-container">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBEI_XjYZiepzL14kopJAzahw8YdtZpsp8XWOt5NAP2jahYw/viewform?usp=sf_link"><img src='/pre_closure_icon.jpg' alt="Pre-closure Icon"></a>
+                    </div>
+                </button>
+                <!-- <button class="loan-button" id="documentsButton">
+                    <span>Loan Documents</span>
+                    <div class="icon-container">
+                        <img src='/loan_documents_icon.jpg' alt="Loan Documents Icon">
+                    </div>
+                </button> -->
+            </div><br>
+            <a href="/contactts" class="account-item">Switch to Other Account</a><br>
+
+            <a href="/accesss" class="account-item">Log out</a>
+        </div>
+        <button id="save-button" onclick="saveChanges()">Save</button> <!-- Moved save button outside profile info -->
+    </div>
+
+    <script>
+        let editMode = false; // Variable to track edit mode
+
+        // Update profile picture
+        document.getElementById('profile-picture').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                document.getElementById('profile-image').src = reader.result;
+                localStorage.setItem('profileImage', reader.result); // Save to local storage
+            }
+
+            reader.readAsDataURL(file);
+        });
+
+        // Edit username and designation
+        function editUsername() {
+            const usernameInput = document.getElementById('username');
+            if (!editMode) {
+                usernameInput.removeAttribute('readonly');
+                usernameInput.classList.add('editable');
+                usernameInput.focus();
+            }
+        }
+
+        function editDesignation() {
+            const designationInput = document.getElementById('designation');
+            if (!editMode) {
+                designationInput.removeAttribute('readonly');
+                designationInput.classList.add('editable');
+                designationInput.focus();
+            }
+        }
+
+        // Toggle edit mode
+        function toggleEditMode() {
+            editMode = !editMode; // Toggle edit mode
+            const inputs = document.querySelectorAll('.user-details input[type="text"]');
+            const editIcon = document.querySelector('.edit-icon');
+            const saveButton = document.getElementById('save-button');
+
+            inputs.forEach(input => {
+                if (editMode) {
+                    input.removeAttribute('readonly');
+                    input.classList.add('editable');
+                    saveButton.style.display = 'block'; // Show save button
+                } else {
+                    input.setAttribute('readonly', 'readonly');
+                    input.classList.remove('editable');
+                    saveButton.style.display = 'none'; // Hide save button
+                }
+            });
+
+            // Change icon based on edit mode
+            if (editMode) {
+                editIcon.classList.remove('fa-pencil-alt');
+                editIcon.classList.add('fa-times');
+            } else {
+                editIcon.classList.remove('fa-times');
+                editIcon.classList.add('fa-pencil-alt');
+            }
+        }
+
+        // Save changes
+        function saveChanges() {
+            const username = document.getElementById('username').value;
+            const designation = document.getElementById('designation').value;
+
+            localStorage.setItem('username', username);
+            localStorage.setItem('designation', designation);
+
+            toggleEditMode(); // Exit edit mode after saving changes
+        }
+
+        // Load saved data from local storage
+        window.onload = function () {
+            const savedUsername = localStorage.getItem('username');
+            const savedDesignation = localStorage.getItem('designation');
+
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+            }
+
+            if (savedDesignation) {
+                document.getElementById('designation').value = savedDesignation;
+            }
+
+            const profileImage = localStorage.getItem('profileImage');
+            if (profileImage) {
+                document.getElementById('profile-image').src = profileImage;
+            }
+        };
+
+        // Click event listeners for loan buttons
+        const preClosureButton = document.getElementById('preClosureButton');
+        const documentsButton = document.getElementById('documentsButton');
+
+        // preClosureButton.addEventListener('click', () => {
+        //     alert('Loan Pre-closure initiated! 🎉');
+        //     // Additional logic for pre-closure action
+        // });
+
+        documentsButton.addEventListener('click', () => {
+            alert('Viewing Loan Documents! 📄');
+            // Additional logic for managing loan documents
+        });
+    </script>
+</body>
+
+</html>

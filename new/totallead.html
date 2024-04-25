@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leads</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/bg8.png');
+            /* Replace 'path_to_your_image.jpg' with the actual path to your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f7f8fc,0.5;
+            margin-left: 50px;
+        }
+
+        h1 {
+            color: #ddd;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .topnav {
+            background-color: rgba(253, 253, 252, 0.8); /* Updated background color */
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 10px; /* Added padding */
+        }
+
+        .topnav a {
+            float: left;
+            color: #181717;
+            text-align: center;
+            padding: 10px 14px; /* Adjusted padding */
+            text-decoration: none;
+            font-size: 16px; /* Adjusted font size */
+        }
+
+        .topnav input[type=text] {
+            float: right;
+            padding: 6px;
+            margin-top: 8px;
+            margin-right: 16px;
+            border: none;
+            font-size: 17px;
+            color: #121212; /* Updated text color */
+            /* Updated background color */
+            border-radius: 5px; /* Added border radius */
+            padding: 8px; /* Added padding */
+        }
+
+        .container {
+            padding: 20px;
+          
+        }
+
+        .lead {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .lead img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .lead-info {
+            flex: 1;
+        }
+
+        .lead-info h3 {
+            margin: 0;
+        }
+
+        .lead-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .lead-status {
+            color: #666;
+            font-weight: bold;
+        }
+
+        .lead-actions {
+            margin-left: auto;
+        }
+
+        button {
+            background-color: #d8790d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .submitted-info {
+            margin-top: 20px;
+        }
+
+        /* Back button style */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #f8f7f7;
+            font-size: 54px;
+            text-decoration: none;
+        }
+        #data-table {
+        width: 100%;
+        margin-top: 20px;
+        /* Adjust as needed */
+        border-collapse: collapse;
+        
+    }
+
+    #html-data-table {
+        width: 100%;
+        border: 1px solid #dddddd;
+        margin-top: 30px;
+    }
+
+    #html-data-table th,
+    #html-data-table td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #html-data-table th {
+        background-color: #f2f2f2;
+        /* Header background color */
+    }
+
+    /* Alternate row color */
+    #html-data-table tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    #html-data-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Hover effect */
+    #html-data-table tr:hover {
+        background-color: #dddddd;
+    }
+
+         
+    </style>
+</head>
+
+<body>
+    <a href="/dashboards" class="back-button">&#8249;</a>
+    <div class="logo">
+        <a href="/dashboards">
+            <img src='/logo1.png' alt="Logo">
+        </a>
+        <h1>Total Leads</h1>
+    </div>
+    
+    <div class="topnav">
+        <input type="text" id="leadSearch" placeholder="Search Lead Name...">
+    </div>
+
+    
+<div id="table-container">
+    <table id="html-data-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lead Name</th>
+                <th>Email</th>
+                
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Table rows will be dynamically populated here -->
+        </tbody>
+    </table>
+</div> 
+  
+    <script>
+        fetch("/lead2", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    }) 
+    </script>
+
+<script type="text/javascript" charset="utf-8">
+
+    fetch('/mergedData')
+        .then(function (response) {
+            return response.json();
+        }).then(function (apiJsonData) {
+            console.log(apiJsonData);
+            renderDataInTheTable(apiJsonData);
+        })
+
+        function renderDataInTheTable(todos) {
+    const mytable = document.getElementById("html-data-table");
+    todos.forEach(todo => {
+        let newRow = document.createElement("tr");
+        Object.values(todo).forEach((value, index) => {
+            let cell = document.createElement("td");
+            if (index === 3) { // Assuming the date is in the 4th column (index 3)
+                // Extracting only the date part from the datetime string
+                let datePart = value.split("T")[0];
+                cell.innerText = datePart;
+            } else {
+                cell.innerText = value;
+            }
+            newRow.appendChild(cell);
+        })
+        mytable.appendChild(newRow);
+    });
+}
+
+document.getElementById("leadSearch").addEventListener("keyup", function () {
+    const searchText = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#html-data-table tr");
+
+    rows.forEach(row => {
+        const leadName = row.cells[1].innerText.toLowerCase(); // Index 1 corresponds to the "Name" column
+        if (leadName.includes(searchText)) {
+            row.style.display = ""; // Show the row if the lead's name matches the search text
+        } else {
+            row.style.display = "none"; // Hide the row otherwise
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title> Mortgage Page </title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: url('/bg8.jpg')no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    /* Set background image using a URL */
+    background-image: url('/bg8.png');
+
+    /* Optionally, you can specify additional properties to control the background */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-size: cover;
+    /* Cover the entire viewport */
+    background-position: center;
+    /* Center the image */
+}
+
+header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    margin-right: 20px;
+}
+
+header .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px; 
+    letter-spacing: 1px;
+    padding: 10px 10px; /* Adjust padding as needed */
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+/* Style for active or highlighted link */
+header .navigation a.highlight {
+    background: #db821c; /* Background color when highlighted */
+    color: white; /* Text color when highlighted */
+}
+
+header .navigation a:not(:last-child) {
+    margin-right: 6px; /* Adjust spacing between navigation items */
+}
+
+header .navigation a:hover {
+    background: black;
+}
+
+
+.content {
+    max-width: 650px;
+    margin: 60px 100px;
+
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-image: url('background.jpg');
+    /* Background image URL */
+    background-size: cover;
+    /* Cover the entire viewport */
+    background-position: center;
+    /* Center the background image */
+    color: #fff;
+    /* Text color */
+    text-align: center;
+}
+
+.info {
+    max-width: 600px;
+}
+
+.info h2 {
+    font-size: 55px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 60px;
+
+}
+
+.content .info h2 span {
+    font-size: 50px;
+}
+
+.content .info p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.info-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:  #db821c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.info-btn:hover {
+    background-color: #0056b3;
+}
+
+.media-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.media-icon a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #fff;
+    /* Change the color as needed */
+}
+
+.media-icon a:hover {
+    color: #db821c;
+    transform: scale(1.5);
+    /* Change the hover color as needed */
+}
+
+
+
+/* Styling for the menu button icon */
+.menu-btn,
+.Close {
+    font-size: 24px;
+    /* Adjust the font size as needed */
+    cursor: pointer;
+    /* Change cursor to pointer to indicate interactivity */
+    transition: color 0.3s ease;
+    /* Add transition for smooth color change */
+}
+
+/* Styling for the menu button icon */
+.menu-btn {
+    color: #000;
+    /* Change the color as needed */
+}
+
+/* Styling for the close button icon */
+.Close {
+    color: #000;
+    /* Change the color as needed */
+    display: none;
+    /* Initially hide the close button */
+}
+
+/* Show close button when input is checked */
+input[type="checkbox"]:checked+label .menu-btn {
+    display: none;
+    /* Hide menu button when input is checked */
+}
+
+input[type="checkbox"]:checked+label .Close {
+    display: block;
+    /* Show close button when input is checked */
+}
+
+/* If you're using Font Awesome icons, you may need to import the Font Awesome CSS file */
+
+
+
+
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.dropbtn:hover {
+    background-color: black; /* Change background color to black on hover */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: none;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    text-decoration: none;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.circular-image {
+    width: 200px;
+    /* Adjust the width and height as needed */
+    height: 300px;
+    border-radius: 100%;
+    /* Creates a circular shape */
+    object-fit: cover;
+    /* Ensure the entire image is visible */
+    /* Optional: Add box-shadow, border, or other styles */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Example box shadow */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+.logo img 
+{
+         margin-right:80px;
+            
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            margin-right: auto;
+            margin-left: auto; /* Pushes the text to the left */
+        }
+
+        .logo-image {
+            /* margin-top: 50PX; */
+            margin-left: 1200px; /* Add margin to push image to the right */
+            transform: scale(2); /* Zoom in by a factor of 2 */
+            width: 100px;
+            height: 100px; /* Adjust the width if needed */
+        }
+
+        header .navigation a.highlight {
+    background:  #db821c; /* Background color when highlighted */
+    color: white; /* Text color when highlighted */
+}
+
+.rolling-text-container {
+            width: 100%;
+            overflow: hidden;
+        }
+ 
+        .rolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: roll 10s linear infinite;
+            color: #fff;
+        }
+ 
+        @keyframes roll {
+            from {
+                transform: translateX(100%);
+            }
+ 
+            to {
+                transform: translateX(-100%);
+            }
+        }
+ 
+ 
+ 
+        /* Your existing styles */
+ 
+        .rolling-image-container {
+            width: 100%;
+            overflow: hidden;
+            text-align: center;
+            /* Center the image horizontally */
+            margin-top: 20px;
+ 
+ 
+            /* Adjust spacing from the header */
+        }
+ 
+        .rolling-image-container img {
+            animation: roll 10s linear infinite;
+        }
+ 
+        @keyframes roll {
+            from {
+                transform: translateX(100%);
+            }
+ 
+            to {
+                transform: translateX(-100%);
+            }
+        }
+ 
+        .rolling-image-container img {
+            width: 100px;
+            /* Adjust the width as needed */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            /* Automatically adjust the height to maintain aspect ratio */
+        }
+       
+        #profile-image {
+    width: 65px; /* Adjust as needed */
+    height: 65px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the entire space */
+    border: 2px solid #fff; /* Optional: Add a border */
+  }
+
+  /* Styling for the profile link */
+  .profile {
+    display: inline-block; /* Ensures link behaves like a block-level element */
+    overflow: hidden; /* Hides any overflowing content */
+    border-radius: 50%; /* Makes the link round */
+  }
+    </style>
+</head>
+
+<body>
+    <section>
+
+        <header>
+            <h2><a href="#" class="logo"> <img src='/loo4.png' width="180px"></a></h2>
+            <div class="navigation">
+                <a href="#" class="highlight">Home</a>
+                <a href="#"  onclick="payment()">Payment</a> 
+                <div class="dropdown">
+                    <button class="dropbtn">Products/Services</button>
+                    <div class="dropdown-content">
+                        <a href="/homee">Home</a>
+                        <a href="/education">Education</a>
+                        <a href="/gold">Gold</a>
+                        <a href="/vehicle">Vehicle</a>
+                        <a href="/property">property</a>
+                        <a href="/personal">Personal</a>
+                        </div>
+                </div>
+                
+                <a href="/emicalculator1">EMI Calculator</a> 
+                <a href="/about">About US</a>
+                <a href="/contact">Contact Us</a>
+                <!-- <a href="/accesss">Logout</a> -->
+            </div>
+            <a href="/uprofile" class="profile">
+                <img id="profile-image" src="" alt="profile picture">
+              </a>
+        </header>
+        <div class="content">
+            <div clas="info"><div class="logo-image">
+                <img src='/logoml.png' alt="Logo" width="150px">
+            </div>
+            
+                <h2>"Welcome To <span> SRMTech"</span></h2>
+                <p>"You remain the legal owner of the property you pledge.<br> A mortgage loan is a secured loan
+                    and is
+                    approved more quickly.<br> Mortgage loan interest rates are lower than personal loans."</p>
+                <a href="/about" class="info-btn">Explore it</a>
+                
+            </div>
+        </div>
+ 
+        <!-- <div class="rolling-image-container">
+            <a href="/homee"><img src='/homey1.jpg' alt="Rolling Image"></a>
+            <a href="/gold"><img src='/g3.jpg' alt="Rolling Image"></a>
+            <a href="/personal"><img src='/personal loan.jpg' alt="Rolling Image"></a>
+        </div> -->
+
+        <div class="media-icon">
+            <a href="https://www.facebook.com/SRMTechOfficial/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fsrmtechofficial"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/srmtechofficial/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+       
+    </section>
+</body>
+<script>
+    fetch("/front", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    })
+</script>
+<script>
+    // function payment() {
+    //     // Redirect to the Google Forms link
+    //     window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScJoCV-Qjkran_667HuYp0nSEHaqzbMGe4DJAKEPS8onOPd7Q/viewform?usp=sf_link";
+    // }
+    function payment() {
+        // Redirect to the Google Forms link
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdLvTUY87XXl-8fwReqI9lgSsIRQqAGgKRjQE5o_gWatXyNFA/viewform?usp=sf_link";
+    }
+    
+    // function payment() {
+    //     // Redirect to the Google Forms link
+    //     window.location.href = "https://form.jotform.com/241141250156039";
+    // }
+
+    // function payment() {
+    //     // Redirect to the Google Forms link
+    //     window.location.href = "https://form.jotform.com/241142272311037";
+    // }
+    // Load profile picture from local storage
+    window.onload = function () {
+        const profileImage = localStorage.getItem('profileImage');
+        if (profileImage) {
+            document.getElementById('profile-image').src = profileImage;
+        }
+    }
+</script>
+</html>

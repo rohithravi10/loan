@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <style>
+        body {
+            /* background-image: url('/bg7.jpg'); */
+            background-image: url('/calc.jpg');
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+    .logo {
+            position: absolute;
+            top: 10px;
+            /* Adjust the distance from the top edge of the header */
+            left: 10px;
+            /* Adjust the distance from the left edge of the header */
+            color: rgb(17, 57, 187);
+            /* Text color */
+            font-size: 24px;
+            /* Adjust font size as needed */
+            font-family: 'poppins', sans-serif;
+            /* Specify font family */
+            margin-left:30px;
+}
+       
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+       
+        .input {
+            width: calc(100% - 40px);
+            font-size: 16px;
+            height: 40px;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+       
+        .input:focus {
+            border-color: #0e88bd;
+        }
+       
+        .payment {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+         /* Back button style */
+    .back-button {
+        position: absolute;
+        top: 2px;
+        left: 10px;
+        color: #041263;
+        font-size: 54px;
+        text-decoration: none;
+    }
+        </style>
+</head>
+<body>
+    <a href="/dashboards" class="back-button">&#8249;</a>
+    <header> <h2><a href="/dashboards" class="logo"> <img src='/loo4.png' width="180px"></a></h2>
+    <div class="container">
+        <h1>Loan Calculator</h1>
+        <p>Loan Amount ₹
+            <input onchange="calculateLoan()" class="input" type="number" id="loan-amount" min="1" max="500000" value="10000">
+        </p>
+        <p>Interest Rate %
+            <input onchange="calculateLoan()" class="input" type="number" id="interest-rate" min="0" max="100" value="10" step=".1">
+        </p>
+        <p>Months to pay
+            <input onchange="calculateLoan()" class="input" type="number" id="months-to-pay" min="6" max="48" value="12">
+        </p>
+        <p class="payment" id="payment">Monthly Payment:</p>
+    </div>
+</header>
+    <script>
+            function calculateLoan() {
+        // Retrieve input values
+        var loanAmount = parseFloat(document.getElementById("loan-amount").value);
+        var interestRate = parseFloat(document.getElementById("interest-rate").value);
+        var monthsToPay = parseInt(document.getElementById("months-to-pay").value);
+
+        // Convert interest rate to decimal
+        interestRate = interestRate / 100;
+
+        // Calculate monthly interest rate
+        var monthlyInterest = interestRate / 12;
+
+        // Calculate monthly payment in rupees
+        var monthlyPayment = loanAmount * monthlyInterest / (1 - Math.pow(1 + monthlyInterest, -monthsToPay));
+
+        // Update the payment paragraph with the calculated monthly payment in rupees
+        document.getElementById("payment").innerHTML = "Monthly Payment: ₹" + monthlyPayment.toFixed(2);
+    }
+
+    // Call calculateLoan function initially to display the default monthly payment
+    calculateLoan();
+    fetch("/emicalculator", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    })
+
+    </script>
+</body>
+</html>

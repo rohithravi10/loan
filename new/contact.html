@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome CSS -->
+    <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+   
+  }
+   
+  body {
+    background-image:url('/bg8.png');
+    background-size: cover;
+      font-family: 'outfit';
+      position: relative; 
+   
+   
+  }
+   
+  .contact-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+   
+   
+  }
+   
+  .contact-left {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+   
+  }
+   
+  .contact-left-title h2 {
+      font-weight: 600;
+      color: #fff;
+      font-size: 40px;
+      margin-bottom: 5px;
+   
+   
+  }
+   
+  .contact-left-title hr {
+      border: none;
+      width: 120px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+   
+  }
+   
+  .contact-inputs {
+      width: 400px;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding-left: 25px;
+      font-weight: 500;
+      color:Black;
+      border-radius: 50px;
+   
+   
+  }
+   
+  .contact-left textarea {
+      height: 140px;
+      padding-top: 15px;
+      border-radius: 20px;
+  }
+   
+  .contact-inputs:focus {
+      border: 2px solid rgb(1, 8, 12);
+  }
+   
+  .contact-inputs::placeholder {
+      color: #a9a9a9;
+  }
+   
+  .contact-left button {
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      font-size: 16px;
+      color: #fff;
+      gap: 10px;
+      border: none;
+      border-radius: 50px;
+      background:  #db821c;
+      cursor: pointer;
+  }
+   
+  .contact-right img {
+      width: 500px;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    color: white;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 24px; /* Adjust font size */
+  }
+  .back-button:before {
+    content: ''; /* No content */
+  }
+  
+  </style> 
+   
+  </head>
+  <body>
+    <div class="contact-container">
+      <a href="/front" class="back-button"><i class="fas fa-arrow-left fa-lg"></i></a>
+      <!-- <a href="/accesss" class="back-button">&larr;</a>    -->
+      <!-- <a href="/accesss" class="back-button"><i class="fas fa-arrow-left"></i></a>  -->
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>Get in Touch </h2>
+                <hr>
+            </div>
+           <!-- Your hidden access key -->
+           <input type="hidden" name="access_key" value="402ef0e6-1f7a-4f8b-97f1-f8262731b28e">
+           <!-- Input field for recipient's email -->
+           <input type="hidden" name="to" value="recipient@example.com">
+           <!-- Display the recipient's email address -->
+           <h3 style="color: white;">To</h3>
+           <input type="text" name="email" placeholder="Your email" class="contact-inputs" value="contact@srmt.com" readonly>
+           <!-- Input fields for user's name, email, and message -->
+           <h3 style="color: white;">From</h3>
+           <input type="text" name="name" placeholder="Your name" class="contact-inputs" required>
+           <input type="text" name="email" placeholder="Your email" class="contact-inputs" required>
+           <textarea name="message" placeholder="Your Query" class="contact-inputs" required></textarea>
+           <!-- Submit button -->
+           <button type="submit">Submit</button>
+            
+        </form>
+        <div class="contact-right">
+            <img src='/logoml.png' width="150px">
+ 
+        </div>
+    </div>
+</body>
+
+  <script>
+        
+        fetch("/contact", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    })
+    
+</script>
+
+</html>

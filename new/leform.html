@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Entry</title>
+    <link rel="icon" href='logo1.png' type="image/x-icon">
+    <style>
+        body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+          background-image: url('/bg8.png');
+         /* Replace 'path_to_your_image.jpg' with the actual path to your background image */
+         background-size: cover;
+         background-position: center;
+     }
+      
+     .container {
+         border-radius: 10px;
+         background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+         padding: 20px;
+         width: 40%; /* Adjust the width as needed */
+         margin: auto; /* Center the container */
+     }
+      
+     form {
+         max-width: 500px; /* Limit the width of the form */
+         margin: auto; /* Center the form horizontally */
+     }
+      
+     h1 {
+         text-align: center;
+         color: white; /* Set the color of the heading to white */
+     }
+      
+     input[type="text"],
+     input[type="email"],
+     input[type="date"],
+     select,
+     textarea {
+         width: 100%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         box-sizing: border-box;
+         margin-top: 6px;
+         margin-bottom: 16px;
+         resize: vertical;
+         background-color: #f9f9f9; /* Set the background color of the input fields */
+     }
+      
+     input[type="submit"] {
+         background-color: #04AA6D;
+         color: white;
+         padding: 12px 20px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         width: 100%;
+     }
+      
+     input[type="submit"]:hover {
+         background-color: #45a049;
+     }
+      
+     label {
+         font-weight: bold;
+     }
+      
+     /* Style the select dropdown */
+     select {
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Custom arrow icon */
+         background-repeat: no-repeat;
+         background-position: right 10px center;
+     }
+      
+     textarea {
+         min-height: 100px; /* Ensure the textarea has a minimum height */
+     }
+     .logo {
+            position: absolute;
+            top: 10px;
+            /* Adjust the distance from the top edge of the header */
+            left: 10px;
+            /* Adjust the distance from the left edge of the header */
+            color: rgb(17, 57, 187);
+            /* Text color */
+            font-size: 24px;
+            /* Adjust font size as needed */
+            font-family: 'poppins', sans-serif;
+            /* Specify font family */
+            margin-left:20px;
+}
+
+  /* Back button style */
+  .back-button {
+        position: absolute;
+        top: 2px;
+        left: 10px;
+        color: #041263;
+        font-size: 54px;
+        text-decoration: none;
+    }
+         </style>
+</head>
+
+<body>
+    <a href="/dashboards" class="back-button">&#8249;</a>
+    <h2><a href="/dashboards" class="logo"> <img src='/loo4.png' width="200px"></a></h2>
+    <h1>Lead Entry</h1>
+    <div class="container">
+        <form id="leadForm">
+
+            <label for="rname">Representative Name*</label>
+            <input type="text" id="rname" name="Representative Name" placeholder="Enter Your Representative Name..">
+            <div id="rname-error" class="error-message"></div>
+
+            <label for="lname">Lead Name*</label>
+            <input type="text" id="lname" name="Lead name" placeholder="Enter Your Name..">
+            <div id="lname-error" class="error-message"></div>
+
+            <label for="gender">Gender*</label>
+            <select id="gender" name="gender">
+                <option value="select">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+            <div id="gender-error" class="error-message"></div>
+
+            <label for="dob">DOB* (YYYY/MM/DD)</label>
+            <input type="text" id="dob" name="DOB" placeholder="DOB..">
+            <div id="dob-error" class="error-message"></div>
+
+            <label for="email">EmailID*</label>
+            <input type="text" id="email" name="EmailID" placeholder="EmailID..">
+            <div id="email-error" class="error-message"></div>
+
+            <label for="mobile">Mobile Number*</label>
+            <input type="text" id="mobile" name="Mobile Number" placeholder="10 digit please..">
+            <div id="mobile-error" class="error-message"></div>
+
+            <label for="address">Residential Address</label>
+            <textarea id="address" name="address" placeholder="Your Address.." style="height:100px"></textarea>
+            <div id="address-error" class="error-message"></div>
+
+            <label for="Mode_of_Contact">Mode of Contact*</label>
+            <select id="Mode_of_Contact" name="Mode_of_Contact">
+                <option value="select">Select</option>
+                <option value="Call">Call</option>
+                <option value="Email">Email</option>
+                <option value="SMS">SMS</option>
+                <option value="others">Others</option>
+            </select>
+            <div id="mode-of-contact-error" class="error-message"></div>
+
+            <label for="Type_of_loan">Type of loan*</label>
+            <select id="Type_of_loan" name="Type_of_loan">
+                <option value="select">Select</option>
+                <option value="Home">Home</option>
+                <option value="Education">Education</option>
+                <option value="Personal">Personal</option>
+                <option value="Property">Property</option>
+                <option value="Gold">Gold</option>
+                <option value="Vehicle">Vehicle</option>
+                <option value="others">Others</option>
+            </select>
+            <div id="type-of-loan-error" class="error-message"></div>
+
+        </form>
+        <input type="button" id="submitBtn" value="Add Lead">
+    </div>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            var rname = document.getElementById("rname").value.trim();
+            var lname = document.getElementById("lname").value.trim();
+            var gender = document.getElementById("gender").value;
+            var dob = document.getElementById("dob").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mobile = document.getElementById("mobile").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var mode_of_contact = document.getElementById("Mode_of_Contact").value;
+            var type_of_loan = document.getElementById("Type_of_loan").value;
+ // Validation for Representative Name
+ if (rname === "") {
+                document.getElementById("rname-error").innerText = "Please enter your Representative Name.";
+                return;
+            } else if (!isValidText(rname)) {
+                document.getElementById("rname-error").innerText = "Only text characters are allowed.";
+                return;
+            } else {
+                document.getElementById("rname-error").innerText = "";
+            }
+
+            // Validation for Lead Name
+            if (lname === "") {
+                document.getElementById("lname-error").innerText = "Please enter your Lead Name.";
+                return;
+            } else if (!isValidText(lname)) {
+                document.getElementById("lname-error").innerText = "Only text characters are allowed.";
+                return;
+            } else {
+                document.getElementById("lname-error").innerText = "";
+            }
+            // Validation for Gender
+            if (gender === "select") {
+                document.getElementById("gender-error").innerText = "Please select your Gender.";
+                return;
+            } else {
+                document.getElementById("gender-error").innerText = "";
+            }
+
+           // Validation for DOB
+           if (dob === "") {
+                document.getElementById("dob-error").innerText = "Please enter your Date of Birth.";
+                return;
+            } else if (!isValidDate(dob)) {
+                document.getElementById("dob-error").innerText = "Please enter a valid date in YYYY/MM/DD format.";
+                return;
+            } else {
+                document.getElementById("dob-error").innerText = "";
+            }
+
+            // Validation for Email
+            if (email === "") {
+                document.getElementById("email-error").innerText = "Please enter your EmailID.";
+                return;
+            } else if (!validateEmail(email)) {
+                document.getElementById("email-error").innerText = "Please enter a valid EmailID.";
+                return;
+            } else {
+                document.getElementById("email-error").innerText = "";
+            }
+
+
+           // Validation for Mobile Number
+           if (mobile === "") {
+                document.getElementById("mobile-error").innerText = "Please enter your Mobile Number.";
+                return;
+            } else if (!isValidPhoneNumber(mobile)) {
+                document.getElementById("mobile-error").innerText = "Please enter a 10-digit phone number.";
+                return;
+            } else {
+                document.getElementById("mobile-error").innerText = "";
+            }
+
+            // Validation for Mode of Contact
+            if (mode_of_contact === "select") {
+                document.getElementById("mode-of-contact-error").innerText = "Please select a Mode of Contact.";
+                return;
+            } else {
+                document.getElementById("mode-of-contact-error").innerText = "";
+            }
+
+            // Validation for Type of Loan
+            if (type_of_loan === "select") {
+                document.getElementById("type-of-loan-error").innerText = "Please select a Type of Loan.";
+                return;
+            } else {
+                document.getElementById("type-of-loan-error").innerText = "";
+            }
+
+            // If all validations pass, proceed with form submission
+            submitForm();
+        });
+
+        function validateEmail(email) {
+            // Regular expression for validating email
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        function isValidText(text) {
+            var regex = /^[a-zA-Z\s]*$/; // Regular expression to allow only text characters and spaces
+            return regex.test(text);
+        }
+
+        function isValidDate(date) {
+            var regex = /^\d{4}\/\d{2}\/\d{2}$/; // Regular expression for YYYY/MM/DD format
+            return regex.test(date);
+        }
+
+        function isValidPhoneNumber(phone) {
+            var regex = /^\d{10}$/; // Regular expression for 10-digit phone number
+            return regex.test(phone);
+        }
+
+        function submitForm() {
+            var rname = document.getElementById("rname").value.trim();
+            var lname = document.getElementById("lname").value.trim();
+            var gender = document.getElementById("gender").value;
+            var dob = document.getElementById("dob").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mobile = document.getElementById("mobile").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var mode_of_contact = document.getElementById("Mode_of_Contact").value;
+            var type_of_loan = document.getElementById("Type_of_loan").value;
+
+            var obj = {
+                Representative_Name: rname,
+                Lead_Name: lname,
+                Gender: gender,
+                DOB: dob,
+                Email: email,
+                Mobile_Number: mobile,
+                Address: address,
+                Mode_of_Contact: mode_of_contact,
+                Type_of_loan: type_of_loan
+            };
+
+            fetch("/leform", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(obj)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Lead added successfully!");
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong');
+                    }
+                })
+                .then(data => {
+                    console.log(data); // log response from the server to console
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
